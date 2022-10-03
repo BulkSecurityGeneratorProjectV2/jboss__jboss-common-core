@@ -282,7 +282,7 @@ public final class JarUtils
             fileName = fileName.replace('/', File.separatorChar);
          }
          File file = new File(dest, fileName);
-         if (!file.getCanonicalPath().startsWith(canonicalDocBasePrefix))
+         if (!file.getCanonicalFile().toPath().startsWith(canonicalDocBasePrefix))
          {
             throw new IOException("Illegal path: " + fileName);
          }
