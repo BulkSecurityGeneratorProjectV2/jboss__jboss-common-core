@@ -20,7 +20,7 @@ package org.jboss.net.protocol.njar;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
-
+import java.nio.file.Files;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -102,7 +102,7 @@ public class Handler
             if (trace) log.trace("Content length: " + embededDataConnection.getContentLength());
             
             InputStream embededData = embededDataConnection.getInputStream();
-            tempJar = File.createTempFile("nested-", ".jar");
+            tempJar = Files.createTempFile("nested-", ".jar").toFile();
             tempJar.deleteOnExit();
             
             if (trace) log.trace("temp file location : " + tempJar);
